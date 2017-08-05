@@ -1,0 +1,41 @@
+{
+  "name": "slack-reactjs",
+  "version": "1.0.0",
+  "description": "A mockup of SLack made using ReactJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build",
+    "build": "webpack -d && webpack-dev-server --content-base src/ --inline --hot --port 1234 --history-api-fallback"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayanb911/slack-reactjs.git"
+  },
+  "keywords": [
+    "reactjs",
+    "slack",
+    "mockup"
+  ],
+  "author": "Ayan Banerjee",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/ayanb911/slack-reactjs/issues"
+  },
+  "homepage": "https://github.com/ayanb911/slack-reactjs#readme",
+  "dependencies": {
+    "css-loader": "^0.28.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router": "^3.0.0",
+    "style-loader": "^0.18.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
+  }
+}
