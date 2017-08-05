@@ -11,10 +11,10 @@ var gulp   = require('gulp'),
 
 //convert all sass files to css
 gulp.task('build-css', function() {
-    return gulp.src('src/app/*.scss')
+    return gulp.src('src/app/sass/*.scss')
         .pipe(sass())
         .pipe(autoprefixer())
-        .pipe(gulp.dest('src/app'))
+        .pipe(gulp.dest('src/app/css'))
         .pipe(browserSync.reload({
             stream: true
         }))

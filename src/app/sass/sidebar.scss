@@ -1,0 +1,27 @@
+#sidebar{
+  height: 100%;
+  max-width: 260px;
+  background: #141414;
+  color: #fff;
+  min-height: 700px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  &>div{
+    margin-bottom: 24px;
+    ul{
+      li{
+        margin: 4px 0;
+        padding: 4px;
+        color: lighten(#111, 50);
+        transition: all 0.3s ease;
+        &:hover{
+          background: #403f3f;
+          color: #fff;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
