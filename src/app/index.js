@@ -18,9 +18,24 @@ var NewComponent = React.createClass({
       channelList: ["general", "testing", "slack-design"],
       messageList: ['ayan', "person1", "person2", "person3"],
       active: ["#general"],
+      channelChat: [],
+      messageChat: []
     }
   },
+
+  componentWillMount: function(){
+    var channelArray = [];
+    var channelList = this.state.channelList.map(function(item, index){
+      channelArray[item] = [];
+    }.bind(this));
+    //console.log(channelArray);
+    this.setState({
+      channelChat: channelArray
+    })
+  },
+
   render: function(){
+    //console.log(this.state.channelChat);
     return(
       <div id="slack">
         <SideBar changeActive = {this.changeActive} active={this.state.active} channel = {this.state.channelList} message= {this.state.messageList} />
