@@ -33,13 +33,17 @@ var Content = React.createClass({
 // Chat Message Component
 var ChatMessage = React.createClass({
   render: function(){
+    var date = new Date();
+    var hours = (date.getHours()>12) ? date.getHours()-12 : date.getHours();
+    var minutes = date.getMinutes();
+    var time = hours +":"+minutes+((date.getHours()>12)?" PM":" AM");
     return(
       <div className="content">
         <div className="profile">
           <div className="avatar"></div>
           <div className="profileInfo">
             <h5>{this.props.active}</h5>
-            <p>8:40 PM</p>
+            <p>{time}</p>
           </div>
         </div>
         <div className="sentMessage">
