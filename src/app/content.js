@@ -1,6 +1,5 @@
 var React = require("react");
 
-
 var Content = React.createClass({
 
   render: function(){
@@ -65,6 +64,7 @@ var Chat = React.createClass({
         </div>
       </div>
     )
+    this.refs.chatSend.value = "";
   },
 
   // Custom Functions
@@ -72,6 +72,7 @@ var Chat = React.createClass({
     e.preventDefault();
     var message = this.refs.chatSend.value;
     this.props.sendMessage(message);
+    this.refs.chatSend.value = "";
   }
 })
 
