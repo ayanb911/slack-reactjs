@@ -72,33 +72,35 @@ var NewComponent = React.createClass({
   },
 
   sendMessage: function(message){
-    var channelNames = this.state.channelList;
-    var messageNames = this.state.messageList;
-    var _channelChat = this.state.channelChat;
-    var _messageChat = this.state.messageChat;
+    if(message != ""){
+      var channelNames = this.state.channelList;
+      var messageNames = this.state.messageList;
+      var _channelChat = this.state.channelChat;
+      var _messageChat = this.state.messageChat;
 
-    channelNames = channelNames.map(function(item, index){
-      if(this.state.active.substring(1) == item){
-        _channelChat[item].push(message);
-        this.setState({
-          channelChat: _channelChat
-        })
-        return true;
-      }
-    }.bind(this))
+      channelNames = channelNames.map(function(item, index){
+        if(this.state.active.substring(1) == item){
+          _channelChat[item].push(message);
+          this.setState({
+            channelChat: _channelChat
+          })
+          return true;
+        }
+      }.bind(this))
 
-    messageNames = messageNames.map(function(item, index){
-      if(this.state.active.substring(1) == item){
-        console.log("message");
-        _messageChat[item].push(message);
-        this.setState({
-          messageChat: _messageChat
-        })
-        return true;
-      }
-    }.bind(this))
+      messageNames = messageNames.map(function(item, index){
+        if(this.state.active.substring(1) == item){
+          console.log("message");
+          _messageChat[item].push(message);
+          this.setState({
+            messageChat: _messageChat
+          })
+          return true;
+        }
+      }.bind(this))
 
-  }
+    }
+    }
 })
 
 //render

@@ -94,19 +94,12 @@ var Chat = React.createClass({
   typeMessage: function(e){
     e.preventDefault();
     var message = this.refs.chatSend.value;
-    this.props.sendMessage(message);
+    console.log(message);
+    if(this.message != ""){
+        this.props.sendMessage(message);
+    }
     this.refs.chatSend.value = "";
   }
 })
-
-// var PrintMessage = React.createClass({
-//   render: function(){
-//     var message = this.props.printMessage;
-//     return(
-//       <div></div>
-//     )
-//   }
-// })
-
 
 module.exports = Content;
