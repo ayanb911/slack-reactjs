@@ -13,15 +13,33 @@ require("./css/reset.css")
 
 //new component
 var NewComponent = React.createClass({
+  getInitialState: function(){
+    return{
+      channelList: ["general", "testing", "slack-design"],
+      messageList: ['ayan', "person1", "person2", "person3"],
+      active: ["#general"],
+    }
+  },
   render: function(){
     return(
       <div id="slack">
-        <SideBar />
-        <Header />
-        <Content />
+        <SideBar changeActive = {this.changeActive} active={this.state.active} channel = {this.state.channelList} message= {this.state.messageList} />
+        <div id="content">
+          <Header active={this.state.active}/>
+          <Content />
+        </div>
       </div>
     )
-  }
+  },
+
+  // Custom Functions
+  changeActive: function(item, sign){
+    var updatedActive = sign+item;
+    //console.log(active);
+    this.setState({
+      active: updatedActive
+    })
+  },
 })
 
 //render

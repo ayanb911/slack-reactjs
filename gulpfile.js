@@ -65,5 +65,5 @@ gulp.task("uglify", ['build-css','minify-image']);
 //gulp watch
 gulp.task('watch', ['build-css'], function() {
     //Reload the browser when these files get saved
-    gulp.watch('assets/sass/*.scss', ['build-css']);
+    gulp.watch('src/app/sass/*.scss', ['build-css']);
 });

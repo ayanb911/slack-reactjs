@@ -1,0 +1,29 @@
+#header{
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  justify-content: space-between;
+  border-bottom: 1px solid #d9d9d9;
+  .headerTitle{
+    font-size: 18px;
+    font-style: italic;
+  }
+  .info-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .myInfo{
+      transition: opacity 0.3s ease-in-out;
+      font-size: 16px;
+      color: #00DAFF;
+      padding-right: 8px;
+      opacity: 0;
+      &.show{
+        opacity: 1;
+      }
+    }
+    i{
+      cursor: default;
+    }
+  }
+}

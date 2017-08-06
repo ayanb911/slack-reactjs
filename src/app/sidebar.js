@@ -4,27 +4,22 @@ var React = require("react");
 require("./css/sidebar.css")
 
 var SideBar = React.createClass({
-  getInitialState: function(){
-    return{
-      channelList: ["general", "testing", "slack-design"],
-      messageList: ['ayan', "person1", "person2", "person3"]
-    }
-  },
-
   render: function(){
+
     //channels
-    var channels = this.state.channelList;
+    var channels = this.props.channel;
+
     channels = channels.map(function(item, index){
       return(
-        <ChannelList channel={item} key={index} />
+        <ChannelList channel={item} key={index} changeActive={this.props.changeActive}/>
       )
     }.bind(this));
 
     //messages
-    var messages = this.state.messageList;
+    var messages = this.props.message;
     messages = messages.map(function(item, index){
       return(
-        <MessageList message={item} key={index} />
+        <MessageList message={item} key={index} changeActive={this.props.changeActive}/>
       )
     }.bind(this));
 
@@ -55,8 +50,12 @@ var SideBar = React.createClass({
 var MessageList = React.createClass({
   render: function(){
     return(
-      <li className="message-item">{this.props.message}</li>
+      <li className="message-item" onClick={this.headerMessage }>{this.props.message}</li>
     )
+  },
+  // Custom Functions
+  headerMessage: function(){
+    this.props.changeActive(this.props.message, "@");
   }
 });
 
@@ -64,11 +63,15 @@ var MessageList = React.createClass({
 var ChannelList = React.createClass({
   render: function(){
     return(
-      <li className="channel-item">{this.props.channel}</li>
+      <li className="channel-item" onClick={this.headerChannel}>{this.props.channel}</li>
     );
+  },
+
+  // Custom Functions
+  headerChannel: function(){
+    this.props.changeActive(this.props.channel, "#");
   }
+
 })
-
-
 
 module.exports = SideBar;
