@@ -48,28 +48,45 @@ var SideBar = React.createClass({
 
 //message component
 var MessageList = React.createClass({
+  getInitialState:function(){
+      return{
+        isActive: false
+      }
+  },
+
   render: function(){
     return(
-      <li className="message-item" onClick={this.headerMessage }>{this.props.message}</li>
+      <li className={(this.state.isActive ? "message-item active" : "message-item")} onClick={this.headerMessage}>{this.props.message}</li>
     )
   },
   // Custom Functions
   headerMessage: function(){
     this.props.changeActive(this.props.message, "@");
+    this.setState({
+      isActive: true
+    })
   }
 });
 
 //channel component
 var ChannelList = React.createClass({
+  getInitialState:function(){
+      return{
+        isActive: false
+      }
+  },
   render: function(){
     return(
-      <li className="channel-item" onClick={this.headerChannel}>{this.props.channel}</li>
+      <li className={(this.state.isActive ? "channel-item active" : "channel-item")} onClick={this.headerChannel}>{this.props.channel}</li>
     );
   },
 
   // Custom Functions
   headerChannel: function(){
     this.props.changeActive(this.props.channel, "#");
+    this.setState({
+      isActive: true
+    })
   }
 
 })

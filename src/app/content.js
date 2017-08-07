@@ -1,7 +1,10 @@
 var React = require("react");
 
 // Styles
-require("./css/content.css")
+require("./css/content.css");
+
+//Modules required
+var InfoFloater = require("./infoFloater")
 
 var Content = React.createClass({
 
@@ -62,7 +65,7 @@ var ChatMessage = React.createClass({
         <div className="profile">
           <div className="avatar"></div>
           <div className="profileInfo">
-            <h5>{this.props.active}</h5>
+            <h5>ayan</h5>
             <p>{time}</p>
           </div>
         </div>
@@ -75,13 +78,20 @@ var ChatMessage = React.createClass({
 })
 
 var Chat = React.createClass({
+  getInitialState: function(){
+    return{
+      popupIsOpen: false
+    }
+  },
+
   render: function(){
     var placeholder = "Message "+ this.props.active;
     return(
       <div id="inputChat">
         <div className="inputArea">
           <form id="inputForm" onSubmit={this.typeMessage}>
-            <button type="submit">+</button>
+            <InfoFloater open={this.state.popupIsOpen}/>
+            <a href="https://ayanb911.github.io/portfolio/"><div className="showSocial" ><img src="/app/images/world.png"></img></div></a>
             <input type="text" ref="chatSend" placeholder={placeholder}></input>
           </form>
         </div>
@@ -99,6 +109,12 @@ var Chat = React.createClass({
         this.props.sendMessage(message);
     }
     this.refs.chatSend.value = "";
+  },
+
+  infoFloater: function(val){
+    this.setState({
+      popupIsOpen: !this.state.popupIsOpen
+    })
   }
 })
 

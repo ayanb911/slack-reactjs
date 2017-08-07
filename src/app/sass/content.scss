@@ -64,19 +64,31 @@
           flex-direction: row;
           justify-content: center;
           align-items: center;
-          button{
+          position: relative;
+          div.showSocial{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             height: 50px;
             font-size: 28px;
             width: 50px;
-            background: transparent;
+            background: #fff;
             border-radius: 0;
             border-top-left-radius: 4px;
             border-bottom-left-radius: 4px;
             border: 2px solid #717274;
             border-right: 0;
             color: #717274;
+            transition: all 0.3s ease;
             &:focus, &:active{
               outline: none;
+            }
+            &:hover{
+              cursor: pointer;
+            }
+            img{
+              height: 20px;
+              width: 20px;
             }
           }
           input[type="text"]{
